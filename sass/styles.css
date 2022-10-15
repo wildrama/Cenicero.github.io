@@ -18,7 +18,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
   font-family: bebas neue;
-  color: black;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -146,17 +145,15 @@ h3 {
 
 #main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(600px, auto));
   text-align: center;
   background-color: #da8a0d;
-  margin: 5% 5%;
-  background-size: 120vw;
+  margin: 5% 10%;
   border: #da8a0d solid 10px;
   gap: 10px;
   padding: 1%;
   border-radius: 10px;
-  grid-template-areas: "img1 div2" "img1 div2";
 }
 #main div .img1 {
   width: 600px;
@@ -171,13 +168,13 @@ h3 {
   grid-template-areas: " img2" " img3";
 }
 #main .div2 .img2 {
-  width: 200px;
+  width: 300px;
   height: auto;
   display: grid;
   grid-area: img2;
 }
 #main .div2 .img3 {
-  width: 200px;
+  width: 300px;
   height: auto;
   display: grid;
   grid-area: img3;
@@ -188,6 +185,11 @@ footer {
   width: 100vw;
   background-size: 100vw;
   background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-bottom: #da8a0d solid 10px;
+  border-top: #da8a0d solid 10px;
 }
 footer #btn-inst {
   position: fixed;
@@ -206,5 +208,10 @@ footer #btn-inst {
   transition: all 300ms ease;
 }
 footer img {
-  width: 100vw;
+  width: 20vw;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  align-items: center;
+  display: flex;
+  padding: 100px 0px;
 }/*# sourceMappingURL=styles.css.map */
