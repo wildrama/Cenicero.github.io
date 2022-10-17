@@ -52,6 +52,8 @@ table {
 /* fin del reset */
 header {
   border-bottom: #da8a0d 10px solid;
+  background-image: url(../img/background.png);
+  background-size: 100vw;
 }
 
 .cenic {
@@ -59,6 +61,7 @@ header {
   z-index: 100;
   position: fixed;
   text-shadow: 0px -1px rgb(0, 0, 0);
+  color: aliceblue;
 }
 
 div {
@@ -70,14 +73,15 @@ div {
 }
 div #menu {
   display: flex;
-  background-color: whitesmoke;
-  color: black;
+  background-color: #da8a0d;
+  color: whitesmoke;
 }
 div #menu ul .nav-item2 a {
   background-color: #da8a0d;
 }
 div #menu ul li a {
-  color: black;
+  text-shadow: 0px -1px rgb(0, 0, 0);
+  color: white;
 }
 div img {
   width: 150px;
@@ -148,7 +152,7 @@ h3 {
   grid-template-rows: 1fr;
   grid-template-columns: repeat(auto-fill, minmax(600px, auto));
   text-align: center;
-  background-color: #da8a0d;
+  background-image: url(../img/background.png);
   margin: 5% 10%;
   border: #da8a0d solid 10px;
   gap: 10px;

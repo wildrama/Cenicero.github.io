@@ -45,12 +45,15 @@ table {
 /* fin del reset */
 header {
     border-bottom: #da8a0d 10px solid;
+    background-image: url(../img/background.png);
+    background-size: 100vw;
 }
 .cenic {
     font-size: 15px;
     z-index: 100;
     position: fixed;
     text-shadow: 0px -1px rgb(0, 0, 0);
+    color: aliceblue;
 }
 div{
     align-items: center;
@@ -61,8 +64,8 @@ div{
     
     #menu {
         display: flex;
-        background-color: whitesmoke;
-        color: black;
+        background-color: #da8a0d;
+        color: whitesmoke;
         ul {
             .nav-item2 {
                 a {
@@ -71,7 +74,8 @@ div{
             }
             li{
                 a {
-                    color: black;
+                    text-shadow: 0px -1px rgb(0, 0, 0);
+                    color:white;
                 }
             }
         }
@@ -129,7 +133,7 @@ h3 {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(auto-fill, minmax(600px, auto));
     text-align: center;
-    background-color: #da8a0d;
+    background-image: url(../img/background.png);
     margin: 5% 10%;
     border: #da8a0d solid 10px;
     gap: 10px;
