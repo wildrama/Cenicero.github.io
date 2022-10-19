@@ -148,6 +148,7 @@ h3 {
     border: #da8a0d solid 10px;
     gap: 10px;
     padding: 1%;
+    background-size: 100vw;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
@@ -182,10 +183,10 @@ h3 {
 }
 @media screen and (max-width: 500px){ 
     #main {
-        margin: 5% 0%;
+        margin: 0% 0%;
         border: #da8a0d solid 0px;
         border-bottom: solid #da8a0d 10px;
-        border-top: solid #da8a0d 10px;
+        border-top: solid #da8a0d 0px;
         padding: 0%;
         border-radius: 0px;
     }
