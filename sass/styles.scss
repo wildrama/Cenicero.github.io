@@ -50,7 +50,7 @@ body {
 }
 header {
     border-bottom: #da8a0d 10px solid;
-    background-image: url(../img/background.png);
+    background-image: url(../img/fondo.png);
     background-size: 100vw;
     text-align: start;
     #btn-inst{
@@ -161,7 +161,7 @@ h3 {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(auto-fill, minmax(600px, auto));
     text-align: center;
-    background-image: url(../img/background.png);
+    background-image: url(../img/fondo.png);
     margin: 5% 10%;
     border: #da8a0d solid 10px;
     gap: 10px;
@@ -219,7 +219,7 @@ h3 {
 footer {
     align-items: center;
     width: 100vw;
-    background-image: url(../img/background.png);
+    background-image: url(../img/fondo.png);
     background-size: 100vw;
     align-items: center;
     justify-content: center;
@@ -241,5 +241,6 @@ footer {
         width: 60vw;
         margin-left: 20vw;
         margin-right: 20vw;
+        padding: 0%;
     }
 }
