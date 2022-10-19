@@ -50,6 +50,12 @@ table {
 }
 
 /* fin del reset */
+body {
+  width: 100vw;
+  height: auto;
+  overflow-x: hidden;
+}
+
 header {
   border-bottom: #da8a0d 10px solid;
   background-image: url(../img/background.png);
@@ -195,12 +201,15 @@ h3 {
     border: #da8a0d solid 0px;
     border-bottom: solid #da8a0d 10px;
     border-top: solid #da8a0d 10px;
+    padding: 0%;
+    border-radius: 0px;
   }
   #main .div2 {
     display: none;
   }
-  #main div .im1 {
-    width: 100vw;
+  #main div .img1 {
+    width: 80vw;
+    padding: 10vw 0vw;
   }
 }
 footer {
