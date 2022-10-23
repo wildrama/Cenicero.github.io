@@ -267,6 +267,11 @@ footer img {
     padding: 0%;
   }
 }
+#productos {
+  width: 100vw;
+  height: auto;
+}
+
 .ropaje {
   display: grid;
   text-align: center;
