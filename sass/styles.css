@@ -178,12 +178,13 @@ h3 {
 #main {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(600px, auto));
+  grid-template-columns: auto;
   text-align: center;
   background-image: url(../img/fondo.png);
-  margin: 5% 10%;
+  margin: 5vw 10vw;
   border: #da8a0d solid 10px;
-  gap: 10px;
+  border-bottom: #da8a0d solid 10px;
+  gap: 1vw;
   padding: 1%;
   background-size: 100vw;
   border-radius: 10px;
@@ -191,7 +192,7 @@ h3 {
   justify-content: center;
 }
 #main div .img1 {
-  width: 600px;
+  width: 50vw;
   display: grid;
   height: auto;
   grid-area: img1;
@@ -203,18 +204,23 @@ h3 {
   grid-template-areas: " img2" " img3";
 }
 #main .div2 .img2 {
-  width: 300px;
+  width: 25vw;
   height: auto;
   display: grid;
   grid-area: img2;
 }
 #main .div2 .img3 {
-  width: 300px;
+  width: 25vw;
   height: auto;
   display: grid;
   grid-area: img3;
 }
 
+@media screen and (max-width: 1000px) {
+  #main {
+    margin: 3vw;
+  }
+}
 @media screen and (max-width: 500px) {
   #main {
     margin: 0% 0%;
@@ -259,5 +265,98 @@ footer img {
     margin-left: 20vw;
     margin-right: 20vw;
     padding: 0%;
+  }
+}
+.ropaje {
+  display: grid;
+  text-align: center;
+  display: grid;
+  height: auto;
+  width: 100vw;
+  grid-template-columns: repeat(auto-fill, minmax(500px, auto));
+  grid-auto-rows: auto;
+  gap: 0px 40px;
+  padding-top: 5vh;
+  margin-bottom: 5vh;
+  text-decoration: none;
+  color: #D4D4D4;
+  align-items: center;
+  justify-content: center;
+  border-bottom: #da8a0d solid 10px;
+  background-image: url(../img/fondo.png);
+}
+.ropaje .producto1 {
+  color: white;
+  text-decoration: none;
+}
+.ropaje .producto1 img {
+  width: 500px;
+  border-radius: 10px;
+}
+.ropaje .producto1 p {
+  font-size: 40px;
+  background-image: url(../img/backgroundtext.png);
+  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
+  border-radius: 10px;
+  margin: 1% 30% 5% 30%;
+  text-shadow: #da8a0d 2px 2px;
+  background-size: 500px;
+}
+.ropaje .producto2 {
+  color: white;
+  text-decoration: none;
+}
+.ropaje .producto2 img {
+  width: 500px;
+  border-radius: 10px;
+}
+.ropaje .producto2 p {
+  font-size: 40px;
+  background-image: url(../img/backgroundtext.png);
+  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
+  border-radius: 10px;
+  margin: 1% 30% 5% 30%;
+  text-shadow: #da8a0d 2px 2px;
+  background-size: 500px;
+}
+.ropaje .producto3 {
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.ropaje .producto3 img {
+  width: 500px;
+  border-radius: 10px;
+}
+.ropaje .producto3 p {
+  font-size: 40px;
+  background-image: url(../img/backgroundtext.png);
+  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
+  border-radius: 10px;
+  margin: 1% 30% 5% 30%;
+  text-shadow: #da8a0d 2px 2px;
+  background-size: 500px;
+}
+
+@media screen and (max-width: 1000px) {
+  .ropaje .producto1 img {
+    width: 400px;
+  }
+  .ropaje .producto2 img {
+    width: 400px;
+  }
+  .ropaje .producto3 img {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ropaje .producto1 img {
+    width: 300px;
+  }
+  .ropaje .producto2 img {
+    width: 300px;
+  }
+  .ropaje .producto3 img {
+    width: 300px;
   }
 }/*# sourceMappingURL=styles.css.map */
