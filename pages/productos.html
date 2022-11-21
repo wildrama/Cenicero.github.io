@@ -12,14 +12,11 @@
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body id="productos">
-    <header>
-        <a href="https://www.instagram.com/cenicero.com.ar/" id="btn-inst" target="_blank">
-            <i class="fa fa-instagram icono"></i>
-        </a>
+<body id="">
+    <header id="header">
         <h2 class="cenic">Cenicero.com.ar</h2>
-        <div class="container-fluid">
-            <img src="../img/Sin título-1.png" alt=""  class="imgLogo">
+        <div id="header">
+            <img src="../img/Sin título-1.png" alt=""  id="imgLogo">
             <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <div id="menu">
             <ul class="nav nav-pills">
@@ -29,29 +26,29 @@
             </ul>
         </div>
     </header>
-    <section class="section">
-        <h1 class="rop">Ropa de Segunda Mano</h1>
-    </section>
-    <main class="ropaje">
-        <a href="" class="producto1">
-            <img src="../img/2.png" alt="">
-            <p>
-                Chomba Champion
-            </p>
-        </a>
-        <a href="" class="producto2">
-            <img src="../img/6.png" alt="">
-            <p>
-                buzo raiders
-            </p>
-        </a>
-        <a href="" class="producto3">
-            <img src="../img/4.png" alt="">
-                <p>
-                    buzo michigan
-                </p>
-        </a>
+    <main id="productos">
     </main>
+<button type="button" class="carritoButton" data-toggle="modal" data-target="#exampleModal">
+    <img src="../img/carrito-de-compras.png" alt="" class="carritoImg">
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
     <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
@@ -60,5 +57,10 @@
             </ul>
             <p class="text-center text-white">© 2022 Company, Inc</p>
     </footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

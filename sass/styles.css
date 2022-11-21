@@ -26,8 +26,10 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-body {
+#body {
   line-height: 1;
+  width: 100vw;
+  height: auto;
 }
 
 ol, ul {
@@ -53,7 +55,6 @@ table {
 body {
   width: 100vw;
   height: auto;
-  overflow-x: hidden;
 }
 
 header {
@@ -61,22 +62,7 @@ header {
   background-image: url(../img/fondo.png);
   background-size: 100vw;
   text-align: start;
-}
-header #btn-inst {
-  position: absolute;
-  width: 90px;
-  height: 75px;
-  line-height: 1px;
-  text-align: center;
-  background: linear-gradient(90deg, rgb(246, 201, 31) 0%, rgb(234, 33, 7) 47%, rgb(185, 0, 151) 100%);
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 70px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  transition: all 300ms ease;
-  padding: 0.5;
+  margin-bottom: 100px;
 }
 
 .cenic {
@@ -88,32 +74,33 @@ header #btn-inst {
   color: aliceblue;
 }
 
-div {
+#header {
   align-items: center;
   justify-content: center;
   justify-items: center;
   display: flex;
   flex-direction: column;
 }
-div #menu {
+#header #menu {
   display: flex;
   background-color: #da8a0d;
   color: whitesmoke;
 }
-div #menu ul .nav-item2 a {
+#header #menu ul .nav-item2 a {
   background-color: #da8a0d;
   color: #D4D4D4;
 }
-div #menu ul li a {
+#header #menu ul li a {
   text-shadow: 0px -1px rgb(0, 0, 0);
   color: white;
 }
-div img {
+#header #imgLogo {
   width: 150px;
   position: relative;
   top: 20px;
   padding-bottom: 40px;
   display: flex;
+  margin: 0%;
 }
 
 .section {
@@ -121,6 +108,7 @@ div img {
   border-bottom: #da8a0d 10px solid;
   display: flex;
   flex-direction: row;
+  width: 100vw;
 }
 .section .rop {
   -webkit-animation: roll-in-left 6s ease-out both;
@@ -160,7 +148,7 @@ div img {
     transform: translateX(-500px);
   }
   100% {
-    transform: translatex(500px);
+    transform: translatex(300px);
   }
 }
 @keyframes roll-in-left2 {
@@ -168,7 +156,7 @@ div img {
     transform: translateX(-500px);
   }
   100% {
-    transform: translatex(500px);
+    transform: translatex(300px);
   }
 }
 h3 {
@@ -268,79 +256,25 @@ footer img {
   }
 }
 #productos {
-  width: 100vw;
-  height: auto;
-}
-
-.ropaje {
   display: grid;
   text-align: center;
-  display: grid;
-  height: auto;
   width: 100vw;
-  grid-template-columns: repeat(auto-fill, minmax(500px, auto));
+  height: auto;
+  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
   grid-auto-rows: auto;
-  gap: 0px 40px;
   padding-top: 5vh;
-  margin-bottom: 5vh;
+  padding-bottom: 5vh;
   text-decoration: none;
   color: #D4D4D4;
   align-items: center;
   justify-content: center;
   border-bottom: #da8a0d solid 10px;
+  border-top: #da8a0d solid 10px;
   background-image: url(../img/fondo.png);
-}
-.ropaje .producto1 {
-  color: white;
-  text-decoration: none;
-}
-.ropaje .producto1 img {
-  width: 500px;
-  border-radius: 10px;
-}
-.ropaje .producto1 p {
-  font-size: 40px;
-  background-image: url(../img/backgroundtext.png);
-  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
-  border-radius: 10px;
-  margin: 1% 30% 5% 30%;
-  text-shadow: #da8a0d 2px 2px;
-  background-size: 500px;
-}
-.ropaje .producto2 {
-  color: white;
-  text-decoration: none;
-}
-.ropaje .producto2 img {
-  width: 500px;
-  border-radius: 10px;
-}
-.ropaje .producto2 p {
-  font-size: 40px;
-  background-image: url(../img/backgroundtext.png);
-  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
-  border-radius: 10px;
-  margin: 1% 30% 5% 30%;
-  text-shadow: #da8a0d 2px 2px;
-  background-size: 500px;
-}
-.ropaje .producto3 {
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-}
-.ropaje .producto3 img {
-  width: 500px;
-  border-radius: 10px;
-}
-.ropaje .producto3 p {
-  font-size: 40px;
-  background-image: url(../img/backgroundtext.png);
-  box-shadow: rgba(0, 0, 0, 0.425) 10px 5px;
-  border-radius: 10px;
-  margin: 1% 30% 5% 30%;
-  text-shadow: #da8a0d 2px 2px;
-  background-size: 500px;
+  gap: 10vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-bottom: 10%;
 }
 
 @media screen and (max-width: 1000px) {
@@ -364,4 +298,36 @@ footer img {
   .ropaje .producto3 img {
     width: 300px;
   }
+}
+.carritoButton {
+  background-color: #da8a0d;
+  border-radius: 10px;
+  border: solid 3px white;
+  position: fixed;
+  box-shadow: 1px 1px black;
+  top: 50vh;
+  right: 10px;
+}
+.carritoButton .carritoImg {
+  width: 50px;
+}
+
+#producto {
+  display: grid;
+  text-align: center;
+  width: 100vw;
+  height: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  grid-auto-rows: auto;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  text-decoration: none;
+  color: #D4D4D4;
+  justify-content: center;
+  border-bottom: #da8a0d solid 10px;
+  border-top: #da8a0d solid 10px;
+  background-image: url(../img/fondo.png);
+  margin-bottom: 10%;
+  padding-left: 10vw;
+  padding-right: 1vw;
 }/*# sourceMappingURL=styles.css.map */
