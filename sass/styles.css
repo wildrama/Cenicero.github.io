@@ -74,6 +74,11 @@ header {
   color: aliceblue;
 }
 
+#container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 #header {
   align-items: center;
   justify-content: center;
@@ -90,6 +95,12 @@ header {
   background-color: #da8a0d;
   color: #D4D4D4;
 }
+#header #menu ul #botonCarrito {
+  background-color: #da8a0d;
+}
+#header #menu ul #botonCarrito button .imgBoton {
+  width: 150px;
+}
 #header #menu ul li a {
   text-shadow: 0px -1px rgb(0, 0, 0);
   color: white;
@@ -103,127 +114,48 @@ header {
   margin: 0%;
 }
 
-.section {
-  justify-content: center;
-  border-bottom: #da8a0d 10px solid;
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-}
-.section .rop {
-  -webkit-animation: roll-in-left 6s ease-out both;
-  animation: roll-in-left 6s ease-out both;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  display: flex;
-  margin-top: 8px;
-}
-
-@media screen and (max-width: 500px) {
-  .section .rop {
-    -webkit-animation: roll-in-left2 6s ease-out both;
-    animation: roll-in-left2 6s ease-out both;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-  }
-}
-@-webkit-keyframes roll-in-left {
-  0% {
-    transform: translateX(-750px);
-  }
-  100% {
-    transform: translatex(920px);
-  }
-}
-@keyframes roll-in-left {
-  0% {
-    transform: translateX(-750px);
-  }
-  100% {
-    transform: translatex(920px);
-  }
-}
-@-webkit-keyframes roll-in-left2 {
-  0% {
-    transform: translateX(-500px);
-  }
-  100% {
-    transform: translatex(300px);
-  }
-}
-@keyframes roll-in-left2 {
-  0% {
-    transform: translateX(-500px);
-  }
-  100% {
-    transform: translatex(300px);
-  }
-}
-h3 {
-  text-align: center;
-}
-
-#main {
+#main a {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: auto;
+  grid-auto-columns: auto;
   text-align: center;
   background-image: url(../img/fondo.png);
-  margin: 5vw 10vw;
-  border: #da8a0d solid 10px;
+  border-top: #da8a0d solid 10px;
   border-bottom: #da8a0d solid 10px;
-  gap: 1vw;
-  padding: 1%;
   background-size: 100vw;
-  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   align-items: center;
   justify-content: center;
 }
-#main div .img1 {
+#main a .img1 {
   width: 50vw;
   display: grid;
   height: auto;
-  grid-area: img1;
 }
-#main .div2 {
+#main a .div1 {
   display: grid;
   grid-area: div2;
   grid-row: auto;
   grid-template-areas: " img2" " img3";
+  gap: 2vw;
 }
-#main .div2 .img2 {
-  width: 25vw;
+#main a .div1 .img2 {
+  width: 24vw;
   height: auto;
   display: grid;
   grid-area: img2;
 }
-#main .div2 .img3 {
-  width: 25vw;
+#main a .div1 .img3 {
+  width: 24vw;
   height: auto;
   display: grid;
   grid-area: img3;
 }
 
-@media screen and (max-width: 1000px) {
-  #main {
-    margin: 3vw;
-  }
-}
-@media screen and (max-width: 500px) {
-  #main {
-    margin: 0% 0%;
-    border: #da8a0d solid 0px;
-    border-bottom: solid #da8a0d 10px;
-    border-top: solid #da8a0d 0px;
-    padding: 0%;
-    border-radius: 0px;
-  }
-  #main .div2 {
+@media screen and (max-width: 1024px) {
+  #main a .div1 {
     display: none;
-  }
-  #main div .img1 {
-    width: 80vw;
-    padding: 10vw 0vw;
   }
 }
 footer {
@@ -260,7 +192,7 @@ footer img {
   text-align: center;
   width: 100vw;
   height: auto;
-  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(420px, auto));
   grid-auto-rows: auto;
   padding-top: 5vh;
   padding-bottom: 5vh;
@@ -271,34 +203,13 @@ footer img {
   border-bottom: #da8a0d solid 10px;
   border-top: #da8a0d solid 10px;
   background-image: url(../img/fondo.png);
-  gap: 10vw;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  gap: 8vw;
+  background-size: 100vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
   margin-bottom: 10%;
 }
 
-@media screen and (max-width: 1000px) {
-  .ropaje .producto1 img {
-    width: 400px;
-  }
-  .ropaje .producto2 img {
-    width: 400px;
-  }
-  .ropaje .producto3 img {
-    width: 400px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .ropaje .producto1 img {
-    width: 300px;
-  }
-  .ropaje .producto2 img {
-    width: 300px;
-  }
-  .ropaje .producto3 img {
-    width: 300px;
-  }
-}
 .carritoButton {
   background-color: #da8a0d;
   border-radius: 10px;
@@ -328,6 +239,7 @@ footer img {
   border-top: #da8a0d solid 10px;
   background-image: url(../img/fondo.png);
   margin-bottom: 10%;
+  background-size: 100vw;
   padding-left: 10vw;
   padding-right: 1vw;
 }/*# sourceMappingURL=styles.css.map */
