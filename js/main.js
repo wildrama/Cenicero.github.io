@@ -54,6 +54,7 @@ for(let producto of stockProductos){
 
 // modal carrito
 for(let modalCarrito of stockProductos){
+    const { id, nombre, precio, desc, img, cantidad } = prod;
     const divM = document.createElement('div');
     const Img = document.createElement('img');
     const producto = document.createElement ('p');
@@ -79,7 +80,6 @@ function sumaProducto(id){
     const item = stockProductos.find((producto) => producto.id === id)
     carrito.push(item)
     console.log(carrito)
-    modalCarrito()
 }
 
 // let productosSeleccionados =[];
