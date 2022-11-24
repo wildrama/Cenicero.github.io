@@ -65,6 +65,13 @@ for(let modalCarrito of stockProductos){
     producto.innerHTML= `${producto.nombre}`;
     precio.innerHTML= `${producto.precio}`;
     eliProd.setAttribute('onclick','eliminarProducto(id)');
+    
+    function sumaProducto(id){
+        const item = stockProductos.find((producto) => producto.id === id)
+        carrito.push(item)
+        console.log(carrito)
+        modalCarrito()
+    }
 }
 
 const botonCarrito = document.querySelector("#botonCarrito")
@@ -78,7 +85,7 @@ function sumaProducto(id){
     const item = stockProductos.find((producto) => producto.id === id)
     carrito.push(item)
     console.log(carrito)
-    mCarrito()
+    modalCarrito()
 }
 
 // let productosSeleccionados =[];
