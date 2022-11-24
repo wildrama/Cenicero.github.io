@@ -8,9 +8,10 @@ const stockProductos = [
     { id:7, nombre:"chomba7", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
     { id:8, nombre:"chomba8", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
 ] 
-const productos = document.querySelector("#productos");
+const producto = document.querySelector("#productos");
 const modalCarrito = document.querySelector("#modal, #exampleModal, .modal-dialog, .modal-body");
 let carrito = [];
+let productosSeleccionados = [];
 let id = stockProductos
 // cards productos
 for(let producto of stockProductos){
@@ -39,7 +40,7 @@ for(let producto of stockProductos){
     ptagPrecio.innerHTML= `${producto.precio}`;
     atag.textContent = 'Agregar';
     
-
+    atag.addEventListener("click", sumaProducto)
     productos.append(divCard)
     divCard.append(img,divCardBody)
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag)
@@ -53,39 +54,40 @@ for(let producto of stockProductos){
 }
 
 // modal carrito
-const mostrarCarrito = () => {
-    
-for(let modalCarrito of stockProductos){
 
-    
-    const divM = document.createElement('div');
-    const Img = document.createElement('img');
-    const producto = document.createElement ('p');
-    const precio = document.createElement ('p');
-    const eliProd = document.createElement ('button');
-
-    divM.classList.add('modal-contenedor');
-    Img.classList.add('img-fluid');
-    eliProd.classList.add('btn', 'btn-danger')
-    producto.innerHTML= `${producto.nombre}`;
-    precio.innerHTML= `${producto.precio}`;
-    eliProd.setAttribute('onclick','eliminarProducto(id)');
-}
-}
 const botonCarrito = document.querySelector("#botonCarrito")
 if (botonCarrito){
     botonCarrito.innerHTML +=`
     <button type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
-botonCarrito.addEventListener("click", sumaProducto)
+
+
 
 function sumaProducto(id){
     const item = stockProductos.find((producto) => productos.id)
+    productosSeleccionados.push(item)
     carrito.push(item)
     console.log(carrito)
     mostrarCarrito()
 }
-
+const mostrarCarrito = () => {
+    
+    for(let modalCarrito of stockProductos){
+    
+        const divM = document.createElement('div');
+        const Img = document.createElement('img');
+        const producto = document.createElement ('p');
+        const precio = document.createElement ('p');
+        const eliProd = document.createElement ('button');
+    
+        divM.classList.add('modal-contenedor');
+        Img.classList.add('img-fluid');
+        eliProd.classList.add('btn', 'btn-danger')
+        producto.innerHTML= `${producto.nombre}`;
+        precio.innerHTML= `${producto.precio}`;
+        eliProd.setAttribute('onclick','eliminarProducto(id)');
+    }
+    }
 // let productosSeleccionados =[];
     // let productoElegido = {};
     // productosSeleccionados.push(productoElegido)
