@@ -10,6 +10,8 @@ const stockProductos = [
 ] 
 const productos = document.querySelector("#productos");
 let carrito = [];
+const id =stockProductos.find(stockProductos => stockProductos.id);
+const producto =stockProductos.find(stockProductos => stockProductos.nombre);
 for(let producto of stockProductos){
     
     const divCard = document.createElement('div');
@@ -79,7 +81,7 @@ const mCarrito = () => {
     const modalBody = document.querySelector("#modal .modal .modal-body");
     if (modalBody) {
         carrito.forEach((producto) => {
-        const { id, nombre, precio, img, stock, talle } = productos;
+        const { id, nombre, precio, img, stock, talle } = producto;
         console.log(modalBody);
         modalBody.innerHTML += `
         <div class="modal-contenedor">
@@ -97,7 +99,7 @@ const mCarrito = () => {
     }
 }
 function sumaProducto(id){
-    const item = stockProductos.find((productos) => productos.id === id)
+    const item = stockProductos.find((producto) => producto.id === id)
     carrito.push(item)
     console.log(carrito)
     mCarrito()
