@@ -9,6 +9,7 @@ const stockProductos = [
     { id:8, nombre:"chomba8", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
 ] 
 const productos = document.querySelector("#productos");
+const modalCarrito = document.querySelector("#modal, #exampleModal, .modal-dialog, .modal-body");
 let carrito = [];
 
 // cards productos
@@ -65,13 +66,6 @@ for(let modalCarrito of stockProductos){
     producto.innerHTML= `${producto.nombre}`;
     precio.innerHTML= `${producto.precio}`;
     eliProd.setAttribute('onclick','eliminarProducto(id)');
-    
-    function sumaProducto(id){
-        const item = stockProductos.find((producto) => producto.id === id)
-        carrito.push(item)
-        console.log(carrito)
-        modalCarrito()
-    }
 }
 
 const botonCarrito = document.querySelector("#botonCarrito")
