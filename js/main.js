@@ -11,6 +11,7 @@ const stockProductos = [
 const productos = document.querySelector("#productos");
 const modalCarrito = document.querySelector("#modal, #exampleModal, .modal-dialog, .modal-body");
 let carrito = [];
+let id = stockProductos
 // cards productos
 for(let producto of stockProductos){
     
@@ -52,7 +53,11 @@ for(let producto of stockProductos){
 }
 
 // modal carrito
+const mostrarCarrito = () => {
+    
 for(let modalCarrito of stockProductos){
+
+    
     const divM = document.createElement('div');
     const Img = document.createElement('img');
     const producto = document.createElement ('p');
@@ -66,7 +71,7 @@ for(let modalCarrito of stockProductos){
     precio.innerHTML= `${producto.precio}`;
     eliProd.setAttribute('onclick','eliminarProducto(id)');
 }
-
+}
 const botonCarrito = document.querySelector("#botonCarrito")
 if (botonCarrito){
     botonCarrito.innerHTML +=`
@@ -75,9 +80,10 @@ if (botonCarrito){
 botonCarrito.addEventListener("click", sumaProducto)
 
 function sumaProducto(id){
-    const item = stockProductos.find((productos) => productos.id === id)
+    const item = stockProductos.find((producto) => productos.id)
     carrito.push(item)
     console.log(carrito)
+    mostrarCarrito()
 }
 
 // let productosSeleccionados =[];
