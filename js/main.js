@@ -10,8 +10,8 @@ const stockProductos = [
 ] 
 const productos = document.querySelector("#productos");
 let carrito = [];
-const id =stockProductos.find(stockProductos => stockProductos.id);
-const producto =stockProductos.find(stockProductos => stockProductos.nombre);
+
+// cards productos
 for(let producto of stockProductos){
     
     const divCard = document.createElement('div');
@@ -51,65 +51,35 @@ for(let producto of stockProductos){
     })
 }
 
-const modal = document.querySelector("#modal")
-if (modal){
-    modal.innerHTML +=`
-    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    `
+// modal carrito
+for(let modalCarrito of stockProductos){
+    const divM = document.createElement('div');
+    const Img = document.createElement('img');
+    const producto = document.createElement ('p');
+    const precio = document.createElement ('p');
+    const eliProd = document.createElement ('button');
+
+    divM.classList.add('modal-contenedor');
+    Img.classList.add('img-fluid');
+    eliProd.classList.add('btn', 'btn-danger')
+    producto.innerHTML= `${producto.nombre}`;
+    precio.innerHTML= `${producto.precio}`;
+    eliProd.setAttribute('onclick','eliminarProducto(id)');
 }
 
-
-
-const mCarrito = () => {
-    const modalBody = document.querySelector("#modal .modal .modal-body");
-    if (modalBody) {
-        carrito.forEach((producto) => {
-        const { id, nombre, precio, img, stock, talle } = producto;
-        console.log(modalBody);
-        modalBody.innerHTML += `
-        <div class="modal-contenedor">
-            <div>
-            <img class="img-fluid img-carrito" src="${img}"/>
-            </div>
-        <div>
-            <p>Producto: ${nombre}</p>
-            <p>Precio: ${precio}</p>
-        <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
-            </div>
-        </div>
-        `;
-        });
-    }
-}
-function sumaProducto(id){
-    const item = stockProductos.find((producto) => producto.id === id)
-    carrito.push(item)
-    console.log(carrito)
-    mCarrito()
-}
 const botonCarrito = document.querySelector("#botonCarrito")
 if (botonCarrito){
     botonCarrito.innerHTML +=`
     <button type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
 botonCarrito.addEventListener("click", sumaProducto)
+
+function sumaProducto(id){
+    const item = stockProductos.find((producto) => producto.id === id)
+    carrito.push(item)
+    console.log(carrito)
+    mCarrito()
+}
 
 // let productosSeleccionados =[];
     // let productoElegido = {};
