@@ -1,21 +1,21 @@
 const stockProductos = [
-    { id:1, nombre:"chomba1", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:2, nombre:"chomba2", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:3, nombre:"chomba3", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:4, nombre:"chomba4", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:5, nombre:"chomba5", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:6, nombre:"chomba6", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:7, nombre:"chomba7", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
-    { id:8, nombre:"chomba8", precio:4000, img:"../img/2.png", stock: 1, talle:"L"},
+    { id:1, nombre:"chomba1", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:2, nombre:"chomba2", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:3, nombre:"chomba3", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:4, nombre:"chomba4", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:5, nombre:"chomba5", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:6, nombre:"chomba6", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:7, nombre:"chomba7", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:8, nombre:"chomba8", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
 ] 
 const producto = document.querySelector("#productos");
-const modalCarrito = document.querySelector("#modal, #exampleModal, .modal-dialog, .modal-body");
+const modalBody = document.querySelector("#modal-body");
 let carrito = [];
-let productosSeleccionados = [];
-let id = stockProductos
+let productosElegidos = [];
+
 // cards productos
-for(let producto of stockProductos){
-    
+stockProductos.forEach ((producto) =>{
+
     const divCard = document.createElement('div');
     const img = document.createElement('img');
     const divCardBody = document.createElement('div');
@@ -25,69 +25,84 @@ for(let producto of stockProductos){
     const atag = document.createElement('button');
     const tagTalle = document.createElement('p');
 
-    divCard.classList.add('card','text-dark','mt-5')
-    img.classList.add('card-img-top','mt-2')
+    divCard.classList.add('card','text-dark','mt-5');
+    img.classList.add('card-img-top','mt-2');
     img.src = `${producto.img}`;
     divCardBody.classList.add('card-body');
     h5tag.classList.add('card-title');
     tagTalle.classList.add('card-text');
     ptagPrecio.classList.add('card-text');
-    atag.classList.add('btn','btn-outline-primary')
-    atag.setAttribute('onclick','sumaProducto(id)');
+    atag.classList.add('btn','btn-outline-primary');
 
     h5tag.innerHTML= `${producto.nombre}`;
     ptagTalle.innerHTML= `${producto.talle}`;
     ptagPrecio.innerHTML= `${producto.precio}`;
     atag.textContent = 'Agregar';
     
-    atag.addEventListener("click", sumaProducto)
+    // funcion agregar producto
+    atag.addEventListener("click", () => {
+        carrito.push({
+            id : producto.id,
+            nombre : producto.nombre,
+            precio : producto.precio,
+            img : producto.img,
+            elegidos : producto.elegidos,
+        })
+        console.log(carrito)
+    });
+    
     productos.append(divCard)
     divCard.append(img,divCardBody)
-    divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag)
+    divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
 
     atag.addEventListener('click',function(e){
         divCardBody.append(atag)
         atag.textContent = 'agregado';
         atag.classList.remove('btn-outline-primary')
         atag.classList.add('btn-warning')
-    })
-}
-
-// modal carrito
+    });
+});
 
 const botonCarrito = document.querySelector("#botonCarrito")
 if (botonCarrito){
     botonCarrito.innerHTML +=`
-    <button type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
+    <button id="buttonC" type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
 
+botonCarrito.addEventListener ("click", () =>{
+        carrito.forEach ((producto) => {
+            const {id, nombre, precio, img} = producto
+            
+            const divCarrito = document.createElement('div');
+            divCarrito.classList.add('divCarrito');
+            
+            divCarrito.innerHTML += `
+            <div class="modal-contenedor">
+                <div>
+                <img class="img-fluid img-carrito" src="${img}"/>
+                </div>
+            <div>
+                <p>Producto: ${nombre}</p>
+                <p>Precio: ${precio}</p>
+            <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
+                </div>
+            </div>
+            `;
+            modalBody.append(divCarrito)
+        });
+});
 
 
-function sumaProducto(id){
-    const item = stockProductos.find((producto) => productos.id)
-    productosSeleccionados.push(item)
-    carrito.push(item)
-    console.log(carrito)
-    mostrarCarrito()
-}
-const mostrarCarrito = () => {
-    
-    for(let modalCarrito of stockProductos){
-    
-        const divM = document.createElement('div');
-        const Img = document.createElement('img');
-        const producto = document.createElement ('p');
-        const precio = document.createElement ('p');
-        const eliProd = document.createElement ('button');
-    
-        divM.classList.add('modal-contenedor');
-        Img.classList.add('img-fluid');
-        eliProd.classList.add('btn', 'btn-danger')
-        producto.innerHTML= `${producto.nombre}`;
-        precio.innerHTML= `${producto.precio}`;
-        eliProd.setAttribute('onclick','eliminarProducto(id)');
-    }
-    }
+
+
+
+
+
+
+
+
+
+
 // let productosSeleccionados =[];
     // let productoElegido = {};
     // productosSeleccionados.push(productoElegido)

@@ -75,23 +75,28 @@ header {
     justify-items: center;
     display: flex;
     flex-direction: column;
+    #botonCarrito {
+        #buttonC{
+            width: 70px;
+            height: auto;
+            margin-left: 3vw;
+            img{
+                width: 50px;
+            }
+        }
+    }
     #menu {
+        vertical-align: middle;
         display: flex;
         background-color: #da8a0d;
         color: whitesmoke;
+        align-items: center;
+        margin-right: 0%;
         ul {
             .nav-item2 {
                 a {
                     background-color: #da8a0d;
                     color: #D4D4D4;
-                }
-            }
-            #botonCarrito {
-                background-color: #da8a0d;
-                button{
-                    .imgBoton{
-                        width: 70px;
-                    }
                 }
             }
             li{
@@ -101,6 +106,7 @@ header {
                 }
             }
         }
+        
     }
     #imgLogo {
         width: 150px;
@@ -239,4 +245,14 @@ footer {
     background-size: 100vw;
     padding-left:10vw ;
     padding-right:1vw ;
+}
+#modal {
+    #exampleModal{
+        #modal-body{
+            align-items: center;
+            .divCarrito{
+                text-align: center;
+            }
+        }
+    }
 }

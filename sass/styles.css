@@ -86,20 +86,25 @@ header {
   display: flex;
   flex-direction: column;
 }
+#header #botonCarrito #buttonC {
+  width: 70px;
+  height: auto;
+  margin-left: 3vw;
+}
+#header #botonCarrito #buttonC img {
+  width: 50px;
+}
 #header #menu {
+  vertical-align: middle;
   display: flex;
   background-color: #da8a0d;
   color: whitesmoke;
+  align-items: center;
+  margin-right: 0%;
 }
 #header #menu ul .nav-item2 a {
   background-color: #da8a0d;
   color: #D4D4D4;
-}
-#header #menu ul #botonCarrito {
-  background-color: #da8a0d;
-}
-#header #menu ul #botonCarrito button .imgBoton {
-  width: 70px;
 }
 #header #menu ul li a {
   text-shadow: 0px -1px rgb(0, 0, 0);
@@ -242,4 +247,11 @@ footer img {
   background-size: 100vw;
   padding-left: 10vw;
   padding-right: 1vw;
+}
+
+#modal #exampleModal #modal-body {
+  align-items: center;
+}
+#modal #exampleModal #modal-body .divCarrito {
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
