@@ -1,12 +1,12 @@
 const stockProductos = [
-    { id:1, nombre:"chomba1", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:2, nombre:"chomba2", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:3, nombre:"chomba3", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:4, nombre:"chomba4", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:5, nombre:"chomba5", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:6, nombre:"chomba6", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:7, nombre:"chomba7", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
-    { id:8, nombre:"chomba8", precio:4000, img:"../img/2.png", stock: 2, talle:"L", elegidos:0},
+    { id:1, nombre:"Chomba Champion", precio:4000, img:"../img/2.png", stock: 2, talle:"M", elegidos:0},
+    { id:2, nombre:"Buzo Michigan", precio:4000, img:"../img/4.png", stock: 2, talle:"XL", elegidos:0},
+    { id:3, nombre:"Buzo Raiders", precio:4000, img:"../img/6.png", stock: 2, talle:"XL", elegidos:0},
+    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img:"../img/9.png", stock: 2, talle:"L slim fit", elegidos:0},
+    { id:5, nombre:"Chomba Tommy Hilfiger", precio:4000, img:"../img/11.png", stock: 2, talle:"L", elegidos:0},
+    { id:6, nombre:"Chomba Tommy Hilfiger", precio:4000, img:"../img/13.png", stock: 2, talle:"M", elegidos:0},
+    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4000, img:"../img/15.png", stock: 2, talle:"L", elegidos:0},
+    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4000, img:"../img/17.png", stock: 2, talle:"M", elegidos:0},
 ] 
 const producto = document.querySelector("#productos");
 const modalBody = document.querySelector("#modal-body");
