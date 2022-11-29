@@ -1,33 +1,34 @@
 const stockProductos = [
-    { id:1, nombre:"Chomba Champion", precio:4000, img:"../img/2.png", stock: 2, talle:"M", elegidos:0},
-    { id:2, nombre:"Buzo Michigan", precio:4000, img:"../img/4.png", stock: 2, talle:"XL", elegidos:0},
-    { id:3, nombre:"Buzo Raiders", precio:4000, img:"../img/6.png", stock: 2, talle:"XL", elegidos:0},
-    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img:"../img/9.png", stock: 2, talle:"L slim fit", elegidos:0},
-    { id:5, nombre:"Chomba Tommy Hilfiger", precio:4000, img:"../img/11.png", stock: 2, talle:"L", elegidos:0},
-    { id:6, nombre:"Chomba Tommy Hilfiger", precio:4000, img:"../img/13.png", stock: 2, talle:"M", elegidos:0},
-    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4000, img:"../img/15.png", stock: 2, talle:"L", elegidos:0},
-    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4000, img:"../img/17.png", stock: 2, talle:"M", elegidos:0},
+    { id:1, nombre:"Chomba Champion", precio:5000, img1:"../img/2.png", img2:"../img/1.png", stock: 2, talle:"M", elegidos:0},
+    { id:2, nombre:"Buzo Michigan", precio:7500, img1:"../img/4.png", img2:"../img/5.png", stock: 2, talle:"XL", elegidos:0},
+    { id:3, nombre:"Buzo Raiders", precio:8000, img1:"../img/6.png", img2:"../img/7.png", stock: 2, talle:"XL", elegidos:0},
+    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img1:"../img/9.png", img2:"../img/10.png", stock: 2, talle:"L slim fit", elegidos:0},
+    { id:5, nombre:"Chomba Tommy Hilfiger", precio:3500, img1:"../img/11.png", img2:"../img/12.png", stock: 2, talle:"L", elegidos:0},
+    { id:6, nombre:"Chomba Tommy Hilfiger", precio:2500, img1:"../img/13.png", img2:"../img/14.png", stock: 2, talle:"M", elegidos:0},
+    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4500, img1:"../img/15.png", img2:"../img/16.png", stock: 2, talle:"L", elegidos:0},
+    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4500, img1:"../img/17.png", img2:"../img/18.png", stock: 2, talle:"M", elegidos:0},
 ] 
+
 const producto = document.querySelector("#productos");
 const modalBody = document.querySelector("#modal-body");
 let carrito = [];
 let productosElegidos = [];
 
+
 // cards productos
 stockProductos.forEach ((producto) =>{
-
     const divCard = document.createElement('div');
     const img = document.createElement('img');
     const divCardBody = document.createElement('div');
-    const h5tag = document.createElement('h5');
-    const ptagTalle = document.createElement('p');
-    const ptagPrecio = document.createElement('p');
+    const h5tag = document.createElement('h3');
+    const ptagTalle = document.createElement('h4');
+    const ptagPrecio = document.createElement('h4');
     const atag = document.createElement('button');
-    const tagTalle = document.createElement('p');
+    const tagTalle = document.createElement('h5');
 
     divCard.classList.add('card','text-dark','mt-5');
     img.classList.add('card-img-top','mt-2');
-    img.src = `${producto.img}`;
+    img.src = `${producto.img1}`;
     divCardBody.classList.add('card-body');
     h5tag.classList.add('card-title');
     tagTalle.classList.add('card-text');
@@ -36,7 +37,7 @@ stockProductos.forEach ((producto) =>{
 
     h5tag.innerHTML= `${producto.nombre}`;
     ptagTalle.innerHTML= `${producto.talle}`;
-    ptagPrecio.innerHTML= `${producto.precio}`;
+    ptagPrecio.innerHTML= `$${producto.precio}`;
     atag.textContent = 'Agregar';
     
     // funcion agregar producto
@@ -45,7 +46,7 @@ stockProductos.forEach ((producto) =>{
             id : producto.id,
             nombre : producto.nombre,
             precio : producto.precio,
-            img : producto.img,
+            img : producto.img1,
             elegidos : producto.elegidos,
         })
         console.log(carrito)
@@ -54,7 +55,8 @@ stockProductos.forEach ((producto) =>{
     productos.append(divCard)
     divCard.append(img,divCardBody)
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
-
+    
+    // funcion agregado
     atag.addEventListener('click',function(e){
         divCardBody.append(atag)
         atag.textContent = 'agregado';
@@ -63,11 +65,13 @@ stockProductos.forEach ((producto) =>{
     });
 });
 
+// boton Carrito
 const botonCarrito = document.querySelector("#botonCarrito")
 if (botonCarrito){
     botonCarrito.innerHTML +=`
     <button id="buttonC" type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
+
 
 botonCarrito.addEventListener ("click", () =>{
         carrito.forEach ((producto) => {
@@ -84,13 +88,15 @@ botonCarrito.addEventListener ("click", () =>{
             <div>
                 <p>Producto: ${nombre}</p>
                 <p>Precio: ${precio}</p>
-            <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
+            <button class="btn btn-danger"  onclick="eliminarProd(${id})">Eliminar producto</button>
                 </div>
             </div>
             `;
             modalBody.append(divCarrito)
         });
-});
+    });
+
+
 
 
 
