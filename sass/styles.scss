@@ -211,6 +211,15 @@ footer {
     padding-left:4rem ;
     padding-right:4rem ;
     margin-bottom: 10%;
+    div{
+        align-items: center;
+        #img2 {
+            width: 100px;
+            position: relative;
+            top: -50px;
+            border-radius: 20%;
+        }
+    }
 }
 .carritoButton {
     background-color: #da8a0d;

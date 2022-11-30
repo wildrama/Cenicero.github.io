@@ -18,7 +18,8 @@ let productosElegidos = [];
 // cards productos
 stockProductos.forEach ((producto) =>{
     const divCard = document.createElement('div');
-    const img = document.createElement('img');
+    const img1 = document.createElement('img');
+    const img2 = document.createElement('img');
     const divCardBody = document.createElement('div');
     const h5tag = document.createElement('h3');
     const ptagTalle = document.createElement('h4');
@@ -27,13 +28,16 @@ stockProductos.forEach ((producto) =>{
     const tagTalle = document.createElement('h5');
 
     divCard.classList.add('card','text-dark','mt-5');
-    img.classList.add('card-img-top','mt-2');
-    img.src = `${producto.img1}`;
+    img1.classList.add('card-img-top','mt-2');
+    img1.src = `${producto.img1}`;
+    img2.classList.add('card-img');
+    img2.src = `${producto.img2}`;
     divCardBody.classList.add('card-body');
     h5tag.classList.add('card-title');
     tagTalle.classList.add('card-text');
     ptagPrecio.classList.add('card-text');
     atag.classList.add('btn','btn-outline-primary');
+    img2.setAttribute('id', 'img2')
 
     h5tag.innerHTML= `${producto.nombre}`;
     ptagTalle.innerHTML= `${producto.talle}`;
@@ -53,7 +57,8 @@ stockProductos.forEach ((producto) =>{
     });
     
     productos.append(divCard)
-    divCard.append(img,divCardBody)
+    divCard.append(img1,divCardBody)
+    divCard.append(img2,divCardBody)
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
     
     // funcion agregado
@@ -63,7 +68,27 @@ stockProductos.forEach ((producto) =>{
         atag.classList.remove('btn-outline-primary')
         atag.classList.add('btn-warning')
     });
+    
+
+    // funcion selector de img
+    img2.addEventListener('click', function(){
+        // img1.src = this.src
+        // img2.src = producto.img1
+        if (img1.src = producto.img1){
+        img1.src = producto.img2
+        img2.src = producto.img1
+        }
+        else {
+            img1.src = producto.img1
+            img2.src = producto.img2
+        }
+    });
 });
+
+
+
+
+
 
 // boton Carrito
 const botonCarrito = document.querySelector("#botonCarrito")
