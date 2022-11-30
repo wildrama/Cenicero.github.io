@@ -100,7 +100,6 @@ header {
   background-color: #da8a0d;
   color: whitesmoke;
   align-items: center;
-  margin-right: 0%;
 }
 #header #menu ul .nav-item2 a {
   background-color: #da8a0d;
@@ -202,7 +201,6 @@ footer img {
   padding-top: 5vh;
   padding-bottom: 5vh;
   text-decoration: none;
-  color: #D4D4D4;
   align-items: center;
   justify-content: center;
   border-bottom: #da8a0d solid 10px;
@@ -210,8 +208,8 @@ footer img {
   background-image: url(../img/fondo.png);
   gap: 8vw;
   background-size: 100vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 4rem;
+  padding-right: 4rem;
   margin-bottom: 10%;
 }
 
