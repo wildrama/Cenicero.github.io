@@ -79,8 +79,8 @@ stockProductos.forEach ((producto) =>{
         img2.src = producto.img1
         }
         else {
-            img1.src = producto.img1
             img2.src = producto.img2
+            img1.src = producto.img1
         }
     });
 });
