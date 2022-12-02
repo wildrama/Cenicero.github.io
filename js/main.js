@@ -55,6 +55,12 @@ stockProductos.forEach ((producto) =>{
             img : producto.img1,
             elegidos : producto.elegidos,
         })
+        let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+        console.log(totalPrecio)
+        const fotterModal = document.createElement('p');
+        fotterModal.classList.add('btn-outline-primary')
+        fotterModal.textContent = totalPrecio; 
+        fotterModalPadre.append(fotterModal)
         console.log(carrito)
     });
     
@@ -139,12 +145,7 @@ const mostrarCarrito = () => {
     };
 
 // totalPrecio
-let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-console.log(totalPrecio)
-const fotterModal = document.createElement('p');
-fotterModal.classList.add('btn-outline-primary')
-fotterModal.textContent = totalPrecio;
-fotterModalPadre.append(fotterModal)
+
 
 
 
