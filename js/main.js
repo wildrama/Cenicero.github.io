@@ -16,7 +16,7 @@ const fotterModalPadre = document.querySelector(".modal-footer");
 let carrito = [];
 let productosElegidos = [];
 
-
+let cantidadElegida = 0;
 // cards productos
 stockProductos.forEach ((producto) =>{
     const divCard = document.createElement('div');
@@ -48,12 +48,14 @@ stockProductos.forEach ((producto) =>{
     
     // funcion agregar producto
     atag.addEventListener("click", (id) => {
+        
+        cantidadElegida += 1;
         carrito.push({
             id : producto.id,
             nombre : producto.nombre,
             precio : producto.precio,
             img : producto.img1,
-            elegidos : producto.elegidos,
+            elegidos : cantidadElegida,
         })
         let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
         console.log(totalPrecio)
@@ -105,13 +107,15 @@ if (botonCarrito){
     <button id="buttonC" type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
 botonCarrito.addEventListener ("click", () => {
+    
     mostrarCarrito()
 });
 
 
 const mostrarCarrito = () => {
+    modalBody.innerHtml="";
         carrito.forEach ((producto) => {
-            const {id, nombre, precio, img} = producto
+        console.log(producto);
             
             const divCarrito = document.createElement('div');
             divCarrito.classList.add('divCarrito');
@@ -119,11 +123,11 @@ const mostrarCarrito = () => {
             divCarrito.innerHTML += `
             <div class="modal-contenedor">
                 <div>
-                <img class="img-fluid img-carrito" src="${img}"/>
+                <img class="img-fluid img-carrito" src="${producto.img}"/>
                 </div>
             <div>
-                <p>Producto: ${nombre}</p>
-                <p>Precio: ${precio}</p>
+                <p>Producto: ${producto.nombre}</p>
+                <p>Precio: ${producto.precio}</p>
                 </div>
             </div>
             `;
