@@ -11,6 +11,8 @@ const stockProductos = [
 
 const producto = document.querySelector("#productos");
 const modalBody = document.querySelector("#modal-body");
+const fotterModalPadre = document.querySelector(".modal-footer");
+
 let carrito = [];
 let productosElegidos = [];
 
@@ -45,7 +47,7 @@ stockProductos.forEach ((producto) =>{
     atag.textContent = 'Agregar';
     
     // funcion agregar producto
-    atag.addEventListener("click", () => {
+    atag.addEventListener("click", (id) => {
         carrito.push({
             id : producto.id,
             nombre : producto.nombre,
@@ -96,9 +98,12 @@ if (botonCarrito){
     botonCarrito.innerHTML +=`
     <button id="buttonC" type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
+botonCarrito.addEventListener ("click", () => {
+    mostrarCarrito()
+});
 
 
-botonCarrito.addEventListener ("click", () =>{
+const mostrarCarrito = () => {
         carrito.forEach ((producto) => {
             const {id, nombre, precio, img} = producto
             
@@ -113,13 +118,33 @@ botonCarrito.addEventListener ("click", () =>{
             <div>
                 <p>Producto: ${nombre}</p>
                 <p>Precio: ${precio}</p>
-            <button class="btn btn-danger"  onclick="eliminarProd(${id})">Eliminar producto</button>
                 </div>
             </div>
             `;
+            
+            // eliminar producto
+            const buttonEli = document.createElement('button');
+            buttonEli.classList.add('btn', 'btn-danger');
+            buttonEli.setAttribute('id', 'eliProd');
+            buttonEli.textContent = 'Eliminar Producto';
+            divCarrito.appendChild(buttonEli)
+            buttonEli.addEventListener("click", () => {
+                const prodId = id
+                carrito = carrito.filter((producto) => producto.id !== prodId)
+                console.log(carrito)
+                modalBody.innerHTML = ""
+                });
             modalBody.append(divCarrito)
         });
-    });
+    };
+
+// totalPrecio
+let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+console.log(totalPrecio)
+const fotterModal = document.createElement('p');
+fotterModal.classList.add('btn-outline-primary')
+fotterModal.textContent = totalPrecio;
+fotterModalPadre.append(fotterModal)
 
 
 
