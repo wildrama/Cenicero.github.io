@@ -63,7 +63,6 @@ stockProductos.forEach ((producto) =>{
         fotterModal.classList.add('btn','btn-outline-primary');
         fotterModal.textContent = 'Total:$' + totalPrecio; 
         fotterModalPadre.append(fotterModal);
-    
         console.log(carrito);
     });
     
@@ -71,7 +70,7 @@ stockProductos.forEach ((producto) =>{
     divCard.append(img1,divCardBody);
     divCard.append(img2,divCardBody);
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
-    
+
     // funcion agregado
     atag.addEventListener('click',function(e){
         divCardBody.append(atag);
@@ -79,20 +78,20 @@ stockProductos.forEach ((producto) =>{
         atag.classList.remove('btn-outline-primary');
         atag.classList.add('btn-warning');
     });
-    
 
     // funcion selector de img
     img2.addEventListener('click', function(){
         // img1.src = this.src
         // img2.src = producto.img1
+
         if (img1.src = producto.img1){
         img1.src = producto.img2
         img2.src = producto.img1
         }
-        else {
-            img2.src = producto.img2
+        else if (img1.src = producto.img2){
             img1.src = producto.img1
-        };
+            img2.src = producto.img2
+        }
     });
 });
 
@@ -113,7 +112,9 @@ botonCarrito.addEventListener ("click", () => {
 
 
 const mostrarCarrito = () => {
+        modalBody.innerHTML='';
         carrito.forEach ((producto) => {
+            
             const {id, nombre, precio, img} = producto
             
             const divCarrito = document.createElement('div');
@@ -139,17 +140,15 @@ const mostrarCarrito = () => {
             divCarrito.appendChild(buttonEli);
             buttonEli.addEventListener("click", () => {
                 const prodId = id
-                carrito = carrito.filter((producto) => producto.id !== prodId)
+                carrito = carrito.filter((producto) => producto.id !== prodId);
                 console.log(carrito);
                 modalBody.innerHTML = ""
                 mostrarCarrito();
                 });
-            divCarrito.innerHTML += ""
             modalBody.append(divCarrito);
         });
     };
-
-
+    
 
 
 
