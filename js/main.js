@@ -1,17 +1,17 @@
 const stockProductos = [
-    { id:1, nombre:"Chomba Champion", precio:5000, img1:"../img/2.png", img2:"../img/1.png", stock: 2, talle:"M", elegidos:0},
-    { id:2, nombre:"Buzo Michigan", precio:7500, img1:"../img/4.png", img2:"../img/5.png", stock: 2, talle:"XL", elegidos:0},
-    { id:3, nombre:"Buzo Raiders", precio:8000, img1:"../img/6.png", img2:"../img/7.png", stock: 2, talle:"XL", elegidos:0},
-    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img1:"../img/9.png", img2:"../img/10.png", stock: 2, talle:"L slim fit", elegidos:0},
-    { id:5, nombre:"Chomba Tommy Hilfiger", precio:3500, img1:"../img/11.png", img2:"../img/12.png", stock: 2, talle:"L", elegidos:0},
-    { id:6, nombre:"Chomba Tommy Hilfiger", precio:2500, img1:"../img/13.png", img2:"../img/14.png", stock: 2, talle:"M", elegidos:0},
-    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4500, img1:"../img/15.png", img2:"../img/16.png", stock: 2, talle:"L", elegidos:0},
-    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4500, img1:"../img/17.png", img2:"../img/18.png", stock: 2, talle:"M", elegidos:0},
+    { id:1, nombre:"Chomba Champion", precio:5000, img1:"../img/2.png", img2:"../img/1.png", stock: 2, talle:"M", elegidos:1},
+    { id:2, nombre:"Buzo Michigan", precio:7500, img1:"../img/4.png", img2:"../img/5.png", stock: 2, talle:"XL", elegidos:1},
+    { id:3, nombre:"Buzo Raiders", precio:8000, img1:"../img/6.png", img2:"../img/7.png", stock: 2, talle:"XL", elegidos:1},
+    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img1:"../img/9.png", img2:"../img/10.png", stock: 2, talle:"L slim fit", elegidos:1},
+    { id:5, nombre:"Chomba Tommy Hilfiger", precio:3500, img1:"../img/11.png", img2:"../img/12.png", stock: 2, talle:"L", elegidos:1},
+    { id:6, nombre:"Chomba Tommy Hilfiger", precio:2500, img1:"../img/13.png", img2:"../img/14.png", stock: 2, talle:"M", elegidos:1},
+    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4500, img1:"../img/15.png", img2:"../img/16.png", stock: 2, talle:"L", elegidos:1},
+    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4500, img1:"../img/17.png", img2:"../img/18.png", stock: 2, talle:"M", elegidos:1},
 ] 
 
 const producto = document.querySelector("#productos");
 const modalBody = document.querySelector("#modal-body");
-const fotterModalPadre = document.querySelector(".modal-footer");
+const fotterModalPadre = document.querySelector("#modalFooter");
 
 let carrito = [];
 let productosElegidos = [];
@@ -39,7 +39,7 @@ stockProductos.forEach ((producto) =>{
     tagTalle.classList.add('card-text');
     ptagPrecio.classList.add('card-text');
     atag.classList.add('btn','btn-outline-primary');
-    img2.setAttribute('id', 'img2')
+    img2.setAttribute('id', 'img2');
 
     h5tag.innerHTML= `${producto.nombre}`;
     ptagTalle.innerHTML= `${producto.talle}`;
@@ -55,26 +55,29 @@ stockProductos.forEach ((producto) =>{
             img : producto.img1,
             elegidos : producto.elegidos,
         })
+        // totalPrecio
         let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-        console.log(totalPrecio)
+        console.log(totalPrecio);
+        fotterModalPadre.innerHTML= "";
         const fotterModal = document.createElement('p');
-        fotterModal.classList.add('btn-outline-primary')
-        fotterModal.textContent = totalPrecio; 
-        fotterModalPadre.append(fotterModal)
-        console.log(carrito)
+        fotterModal.classList.add('btn','btn-outline-primary');
+        fotterModal.textContent = 'Total:$' + totalPrecio; 
+        fotterModalPadre.append(fotterModal);
+    
+        console.log(carrito);
     });
     
-    productos.append(divCard)
-    divCard.append(img1,divCardBody)
-    divCard.append(img2,divCardBody)
+    productos.append(divCard);
+    divCard.append(img1,divCardBody);
+    divCard.append(img2,divCardBody);
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
     
     // funcion agregado
     atag.addEventListener('click',function(e){
-        divCardBody.append(atag)
+        divCardBody.append(atag);
         atag.textContent = 'agregado';
-        atag.classList.remove('btn-outline-primary')
-        atag.classList.add('btn-warning')
+        atag.classList.remove('btn-outline-primary');
+        atag.classList.add('btn-warning');
     });
     
 
@@ -89,7 +92,7 @@ stockProductos.forEach ((producto) =>{
         else {
             img2.src = producto.img2
             img1.src = producto.img1
-        }
+        };
     });
 });
 
@@ -99,13 +102,13 @@ stockProductos.forEach ((producto) =>{
 
 
 // boton Carrito
-const botonCarrito = document.querySelector("#botonCarrito")
+const botonCarrito = document.querySelector("#botonCarrito");
 if (botonCarrito){
     botonCarrito.innerHTML +=`
     <button id="buttonC" type="button" data-toggle="modal" data-target="#exampleModal"><img src="../img/carrito-de-compras.png" class="imgBoton"></button>`
 }
 botonCarrito.addEventListener ("click", () => {
-    mostrarCarrito()
+    mostrarCarrito();
 });
 
 
@@ -133,18 +136,20 @@ const mostrarCarrito = () => {
             buttonEli.classList.add('btn', 'btn-danger');
             buttonEli.setAttribute('id', 'eliProd');
             buttonEli.textContent = 'Eliminar Producto';
-            divCarrito.appendChild(buttonEli)
+            divCarrito.appendChild(buttonEli);
             buttonEli.addEventListener("click", () => {
                 const prodId = id
                 carrito = carrito.filter((producto) => producto.id !== prodId)
-                console.log(carrito)
+                console.log(carrito);
                 modalBody.innerHTML = ""
+                mostrarCarrito();
                 });
-            modalBody.append(divCarrito)
+            divCarrito.innerHTML += ""
+            modalBody.append(divCarrito);
         });
     };
 
-// totalPrecio
+
 
 
 
