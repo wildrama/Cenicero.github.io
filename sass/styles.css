@@ -256,6 +256,16 @@ footer img {
   padding-right: 1vw;
 }
 
+#modal #exampleModal .modal-footer {
+  align-items: baseline;
+  justify-content: center;
+}
+#modal #exampleModal .modal-footer #modalFooter {
+  align-items: center;
+}
+#modal #exampleModal .modal-footer #modalFooter p {
+  font-size: 20px;
+}
 #modal #exampleModal #modal-body {
   align-items: center;
 }

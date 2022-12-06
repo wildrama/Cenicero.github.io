@@ -30,9 +30,9 @@ stockProductos.forEach ((producto) =>{
     const tagTalle = document.createElement('h5');
 
     divCard.classList.add('card','text-dark','mt-5');
-    img1.classList.add('card-img-top','mt-2');
+    img1.classList.add('card-img-top','mt-2', 'img-fluid');
     img1.src = `${producto.img1}`;
-    img2.classList.add('card-img');
+    img2.classList.add('card-img', 'img-fluid');
     img2.src = `${producto.img2}`;
     divCardBody.classList.add('card-body');
     h5tag.classList.add('card-title');
@@ -55,15 +55,6 @@ stockProductos.forEach ((producto) =>{
             img : producto.img1,
             elegidos : producto.elegidos,
         })
-        // totalPrecio
-        let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-        console.log(totalPrecio);
-        fotterModalPadre.innerHTML= "";
-        const fotterModal = document.createElement('p');
-        fotterModal.classList.add('btn','btn-outline-primary');
-        fotterModal.textContent = 'Total:$' + totalPrecio; 
-        fotterModalPadre.append(fotterModal);
-        console.log(carrito);
     });
     
     productos.append(divCard);
@@ -133,6 +124,7 @@ const mostrarCarrito = () => {
             `;
             
             // eliminar producto
+            
             const buttonEli = document.createElement('button');
             buttonEli.classList.add('btn', 'btn-danger');
             buttonEli.setAttribute('id', 'eliProd');
@@ -144,13 +136,27 @@ const mostrarCarrito = () => {
                 console.log(carrito);
                 modalBody.innerHTML = ""
                 mostrarCarrito();
+                totalPrecio();
                 });
             modalBody.append(divCarrito);
         });
     };
     
 
-
+// // totalPrecio
+// let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+// console.log(totalPrecio);
+// fotterModalPadre.innerHTML= "";
+// const fotterModal = document.createElement('p');
+// fotterModal.classList.add('card','card-primary');
+// fotterModal.setAttribute('id', 'totalPrecio')
+// fotterModal.textContent = 'Total:$' + totalPrecio; 
+// fotterModalPadre.append(fotterModal);
+// if (carrito.length === 0){
+//     modalBody.innerHTML = '
+//     <p>
+//     ';
+// }
 
 
 

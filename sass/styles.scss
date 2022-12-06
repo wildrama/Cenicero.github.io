@@ -255,6 +255,16 @@ footer {
 }
 #modal {
     #exampleModal{
+        .modal-footer{
+            align-items: baseline;
+            justify-content: center;
+            #modalFooter {
+                align-items: center;
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
         #modal-body{
             align-items: center;
             .divCarrito{
