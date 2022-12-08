@@ -47,6 +47,7 @@ stockProductos.forEach ((producto) =>{
     atag.textContent = 'Agregar';
     
     // funcion agregar producto
+    
     atag.addEventListener("click", (id) => {
         carrito.push({
             id : producto.id,
@@ -54,7 +55,15 @@ stockProductos.forEach ((producto) =>{
             precio : producto.precio,
             img : producto.img1,
             elegidos : producto.elegidos,
-        })
+        });
+
+    const productoElegido = id
+    if (typeof productoElegido == "undefined"){
+        alert("Variable obj3 no definida");
+    }
+    console.log(carrito)
+    // agregarProducto()
+        total();
     });
     
     productos.append(divCard);
@@ -63,6 +72,7 @@ stockProductos.forEach ((producto) =>{
     divCardBody.append(h5tag,ptagTalle,ptagPrecio,atag);
 
     // funcion agregado
+    
     atag.addEventListener('click',function(e){
         divCardBody.append(atag);
         atag.textContent = 'agregado';
@@ -90,7 +100,6 @@ stockProductos.forEach ((producto) =>{
 
 
 
-
 // boton Carrito
 const botonCarrito = document.querySelector("#botonCarrito");
 if (botonCarrito){
@@ -106,7 +115,7 @@ const mostrarCarrito = () => {
         modalBody.innerHTML='';
         carrito.forEach ((producto) => {
             
-            const {id, nombre, precio, img} = producto
+            const {id, nombre, precio, img, elegidos} = producto
             
             const divCarrito = document.createElement('div');
             divCarrito.classList.add('divCarrito');
@@ -117,6 +126,7 @@ const mostrarCarrito = () => {
                 <img class="img-fluid img-carrito" src="${img}"/>
                 </div>
             <div>
+                <p>Producto: ${elegidos}</p>
                 <p>Producto: ${nombre}</p>
                 <p>Precio: ${precio}</p>
                 </div>
@@ -136,31 +146,35 @@ const mostrarCarrito = () => {
                 console.log(carrito);
                 modalBody.innerHTML = ""
                 mostrarCarrito();
-                totalPrecio();
+                total()
                 });
             modalBody.append(divCarrito);
         });
     };
     
 
-// // totalPrecio
-// let totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-// console.log(totalPrecio);
-// fotterModalPadre.innerHTML= "";
-// const fotterModal = document.createElement('p');
-// fotterModal.classList.add('card','card-primary');
-// fotterModal.setAttribute('id', 'totalPrecio')
-// fotterModal.textContent = 'Total:$' + totalPrecio; 
-// fotterModalPadre.append(fotterModal);
-// if (carrito.length === 0){
-//     modalBody.innerHTML = '
-//     <p>
-//     ';
-// }
+// totalPrecio
+function total() {
+const totalPrecio = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+console.log(totalPrecio);
+fotterModalPadre.innerHTML= "";
+const fotterModal = document.createElement('p');
+fotterModal.classList.add('card','card-primary');
+fotterModal.setAttribute('id', 'totalPrecio')
+fotterModal.textContent = 'Total:$' + totalPrecio;
 
+const botonVaciarCarrito = document.createElement('button');
+botonVaciarCarrito.classList.add('btn', 'btn-danger');
+botonVaciarCarrito.textContent = "Vaciar Carrito";
+botonVaciarCarrito.addEventListener("click", () => {
+    carrito = [];
+    mostrarCarrito();
+    total();
+});
 
-
-
+fotterModalPadre.append(botonVaciarCarrito);
+fotterModalPadre.append(fotterModal);
+}
 
 
 
