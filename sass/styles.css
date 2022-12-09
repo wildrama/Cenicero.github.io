@@ -259,15 +259,20 @@ footer img {
 #modal #exampleModal .modal-footer {
   align-items: baseline;
   justify-content: center;
+  flex-direction: row;
 }
 #modal #exampleModal .modal-footer #modalFooter {
-  align-items: center;
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 #modal #exampleModal .modal-footer #modalFooter p {
   font-size: 20px;
 }
 #modal #exampleModal #modal-body {
   align-items: center;
+  flex-direction: row;
 }
 #modal #exampleModal #modal-body .divCarrito {
   text-align: center;

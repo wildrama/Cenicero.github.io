@@ -167,9 +167,9 @@ const botonVaciarCarrito = document.createElement('button');
 botonVaciarCarrito.classList.add('btn', 'btn-danger');
 botonVaciarCarrito.textContent = "Vaciar Carrito";
 botonVaciarCarrito.addEventListener("click", () => {
-    carrito = [];
-    mostrarCarrito();
-    total();
+    carrito = []
+    mostrarCarrito()
+    total()
 });
 
 fotterModalPadre.append(botonVaciarCarrito);

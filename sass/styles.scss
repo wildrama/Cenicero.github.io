@@ -258,8 +258,12 @@ footer {
         .modal-footer{
             align-items: baseline;
             justify-content: center;
+            flex-direction: row;
             #modalFooter {
-                align-items: center;
+                align-items: baseline;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
                 p {
                     font-size: 20px;
                 }
@@ -267,6 +271,7 @@ footer {
         }
         #modal-body{
             align-items: center;
+            flex-direction: row;
             .divCarrito{
                 text-align: center;
             }
