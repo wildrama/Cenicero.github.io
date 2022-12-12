@@ -1,12 +1,12 @@
 const stockProductos = [
-    { id:1, nombre:"Chomba Champion", precio:5000, img1:"../img/2.png", img2:"../img/1.png", stock: 2, talle:"M", elegidos:1},
-    { id:2, nombre:"Buzo Michigan", precio:7500, img1:"../img/4.png", img2:"../img/5.png", stock: 2, talle:"XL", elegidos:1},
-    { id:3, nombre:"Buzo Raiders", precio:8000, img1:"../img/6.png", img2:"../img/7.png", stock: 2, talle:"XL", elegidos:1},
-    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img1:"../img/9.png", img2:"../img/10.png", stock: 2, talle:"L slim fit", elegidos:1},
-    { id:5, nombre:"Chomba Tommy Hilfiger", precio:3500, img1:"../img/11.png", img2:"../img/12.png", stock: 2, talle:"L", elegidos:1},
-    { id:6, nombre:"Chomba Tommy Hilfiger", precio:2500, img1:"../img/13.png", img2:"../img/14.png", stock: 2, talle:"M", elegidos:1},
-    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4500, img1:"../img/15.png", img2:"../img/16.png", stock: 2, talle:"L", elegidos:1},
-    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4500, img1:"../img/17.png", img2:"../img/18.png", stock: 2, talle:"M", elegidos:1},
+    { id:1, nombre:"Chomba Champion", precio:5000, img1:"../img/2.png", img2:"../img/1.png", stock: 2, talle:"M", elegidos:0,precioSubTotal:5000},
+    { id:2, nombre:"Buzo Michigan", precio:7500, img1:"../img/4.png", img2:"../img/5.png", stock: 2, talle:"XL", elegidos:0,precioSubTotal:7500},
+    { id:3, nombre:"Buzo Raiders", precio:8000, img1:"../img/6.png", img2:"../img/7.png", stock: 2, talle:"XL", elegidos:0,precioSubTotal:8000},
+    { id:4, nombre:"Chomba Polo Ralph Lauren", precio:4000, img1:"../img/9.png", img2:"../img/10.png", stock: 2, talle:"L slim fit", elegidos:1,precioSubTotal:4000},
+    { id:5, nombre:"Chomba Tommy Hilfiger", precio:3500, img1:"../img/11.png", img2:"../img/12.png", stock: 2, talle:"L", elegidos:0,precioSubTotal:3500},
+    { id:6, nombre:"Chomba Tommy Hilfiger", precio:2500, img1:"../img/13.png", img2:"../img/14.png", stock: 2, talle:"M", elegidos:0,precioSubTotal:2500},
+    { id:7, nombre:"Chomba Polo Ralph Lauren", precio:4500, img1:"../img/15.png", img2:"../img/16.png", stock: 2, talle:"L", elegidos:0,precioSubTotal:4500},
+    { id:8, nombre:"Chomba RLX Ralph Lauren", precio:4500, img1:"../img/17.png", img2:"../img/18.png", stock: 2, talle:"M", elegidos:0,precioSubTotal:4500},
 ] 
 
 const producto = document.querySelector("#productos");
@@ -44,22 +44,36 @@ stockProductos.forEach ((producto) =>{
     h5tag.innerHTML= `${producto.nombre}`;
     ptagTalle.innerHTML= `${producto.talle}`;
     ptagPrecio.innerHTML= `$${producto.precio}`;
-    atag.textContent = 'Agregar';
+    atag.textContent = `Agregar`;
     
     // funcion agregar producto
     
     
-    atag.addEventListener("click", (id) => {
+    atag.addEventListener("click", (e) => {
         agregarproducto()
     });
-    const agregarproducto = (id) =>{
-        productosElegidos.push({
+    let cantidadElegida = 0;
+    const agregarproducto = () =>{
+                cantidadElegida += 1;
+
+        if (cantidadElegida <2){
+                   productosElegidos.push({
             id : producto.id,
             nombre : producto.nombre,
             precio : producto.precio,
             img : producto.img1,
-            elegidos : producto.elegidos,
+            precioSubTotal : producto.precioSubTotal,
+            elegidos : cantidadElegida,
         });
+        }else{
+       var productoParaActualizar= productosElegidos.find((prod) {
+                               return prod.id == producto.id
+                               })
+        }
+    
+    productoParaActualizar.precioSubTotal = cantidadElegida * productoParaActualizar.precio;
+    productoParaActualizar.elegidos = productoParaActualizar.elegidos + 1;
+    atag.innerHTML =  productoParaActualizar.elegidos;
         console.log(productosElegidos)
         const existe = productosElegidos.reduce(producto => producto.id === productosElegidos.id);
         console.log(existe)
@@ -69,6 +83,7 @@ stockProductos.forEach ((producto) =>{
                 nombre : producto.nombre,
                 precio : producto.precio,
                 img : producto.img1,
+                
                 elegidos : producto.elegidos,
             });
         console.log(carrito)
