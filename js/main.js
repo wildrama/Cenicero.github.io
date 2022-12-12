@@ -48,24 +48,36 @@ stockProductos.forEach ((producto) =>{
     
     // funcion agregar producto
     
+    
     atag.addEventListener("click", (id) => {
-        carrito.push({
+        agregarproducto()
+    });
+    const agregarproducto = (id) =>{
+        productosElegidos.push({
             id : producto.id,
             nombre : producto.nombre,
             precio : producto.precio,
             img : producto.img1,
             elegidos : producto.elegidos,
         });
-
-    const productoElegido = id
-    if (typeof productoElegido == "undefined"){
-        alert("Variable obj3 no definida");
-    }
-    console.log(carrito)
-    // agregarProducto()
-        total();
-    });
-    
+        console.log(productosElegidos)
+        const existe = productosElegidos.reduce(producto => producto.id === productosElegidos.id);
+        console.log(existe)
+        if (existe){
+            carrito.push({
+                id : producto.id,
+                nombre : producto.nombre,
+                precio : producto.precio,
+                img : producto.img1,
+                elegidos : producto.elegidos,
+            });
+        console.log(carrito)
+            total();
+        }
+        else {
+            producto.elegidos = +1
+        };
+        };
     productos.append(divCard);
     divCard.append(img1,divCardBody);
     divCard.append(img2,divCardBody);
@@ -80,7 +92,7 @@ stockProductos.forEach ((producto) =>{
         atag.classList.add('btn-warning');
     });
 
-    // funcion selector de img
+    // funcion selector de img 
     img2.addEventListener('click', function(){
         // img1.src = this.src
         // img2.src = producto.img1
@@ -95,9 +107,6 @@ stockProductos.forEach ((producto) =>{
         }
     });
 });
-
-
-
 
 
 // boton Carrito
@@ -148,6 +157,7 @@ const mostrarCarrito = () => {
                 mostrarCarrito();
                 total()
                 });
+                
             modalBody.append(divCarrito);
         });
     };
@@ -175,8 +185,6 @@ botonVaciarCarrito.addEventListener("click", () => {
 fotterModalPadre.append(botonVaciarCarrito);
 fotterModalPadre.append(fotterModal);
 }
-
-
 
 
 
